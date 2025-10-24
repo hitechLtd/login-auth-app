@@ -1,8 +1,6 @@
 const sqlite3 = require("sqlite3").verbose(); // imports the sqlite3 with verbose() logging enabled
 const bcrypt = require("bcrypt");// imports bcrypt library used for hashing and verifying passwords
-
-const db = new sqlite3.Database('users.db')
-
+const db = new sqlite3.Database('/app/data/users.db');  // /app/data/ is Render's disk mount path
 db.serialize(() =>{
     db.run(`CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
